@@ -34,6 +34,7 @@ Plug 'itchyny/lightline.vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'morhetz/gruvbox'
 Plug 'habamax/vim-asciidoctor'
+Plug 'haya14busa/incsearch.vim'
 call plug#end()
 
 """" Key Bindings
@@ -187,3 +188,13 @@ augroup END
 
 winpos 800 0
 winsize 150 50
+
+" Used with incsearch plugin to hide highlights after moving the cursor following a search
+set hlsearch
+let g:incsearch#auto_nohlsearch = 1
+map n  <Plug>(incsearch-nohl-n)
+map N  <Plug>(incsearch-nohl-N)
+map *  <Plug>(incsearch-nohl-*)
+map #  <Plug>(incsearch-nohl-#)
+map g* <Plug>(incsearch-nohl-g*)
+map g# <Plug>(incsearch-nohl-g#)
