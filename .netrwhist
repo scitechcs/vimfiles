@@ -1,0 +1,12 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =9
+let g:netrw_dirhist_9='C:/Users/Mark/Documents/myfiles/notes'
+let g:netrw_dirhist_8='C:\Users\Mark\Documents\myfiles\notes'
+let g:netrw_dirhist_7='C:/Users/Mark/Documents/myfiles/notes'
+let g:netrw_dirhist_6='C:\Users\Mark\Documents\myfiles\notes'
+let g:netrw_dirhist_5='C:/Users/Mark/Documents/myfiles/notes/images'
+let g:netrw_dirhist_4='C:\Users\Mark\Documents\myfiles\notes'
+let g:netrw_dirhist_3='C:/Users/Mark/Documents/myfiles/notes'
+let g:netrw_dirhist_2='C:/Users/Mark/Documents/myfiles'
+let g:netrw_dirhist_1='C:\Users\Mark\Documents\myfiles\notes'
+let g:netrw_dirhist_0='C:\Users\Mark\Desktop'
