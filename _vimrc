@@ -35,6 +35,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'morhetz/gruvbox'
 Plug 'habamax/vim-asciidoctor'
 Plug 'haya14busa/incsearch.vim'
+Plug 'mattn/emmet-vim'
 call plug#end()
 
 """" Key Bindings
@@ -117,9 +118,9 @@ vnoremap <tab> %
 " use semicolon to enter commandline instead of shift-; (:)
 nnoremap ; :
 
-
-set foldmethod=expr
-set foldnestmax=4
+" commented out these lines as the asciidoctor plugin takes care of folding settings I think
+" set foldmethod=expr
+" set foldnestmax=4
 
 set filetype=on
 
