@@ -101,6 +101,7 @@ set cursorline         " highlight current line
 command! PrettyPrintHTML !tidy -mi -html -wrap 0 %
 command! PrettyPrintXML !tidy -mi -xml -wrap 0 %
 
+" Remapping of alt-j, alt-k to move lines up and down
 nnoremap <A-j> :m .+1<CR>==
 nnoremap <A-k> :m .-2<CR>==
 inoremap <A-j> <Esc>:m .+1<CR>==gi
@@ -118,9 +119,6 @@ vnoremap <tab> %
 " use semicolon to enter commandline instead of shift-; (:)
 nnoremap ; :
 
-" commented out these lines as the asciidoctor plugin takes care of folding settings I think
-" set foldmethod=expr
-" set foldnestmax=4
 
 set filetype=on
 
