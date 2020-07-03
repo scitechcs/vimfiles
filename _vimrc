@@ -26,8 +26,6 @@ set nocompatible           " No need to be compatible with Vi which would come a
 set gdefault               " applies find and replace subsitition globally by default. To only replace first occurrence use /g
 
 call plug#begin()
-
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/goyo.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'itchyny/lightline.vim'
@@ -50,23 +48,15 @@ nmap k gk
 
 """" Vim Appearance
 
-" put colorscheme files in ~/.vim/colors/
-
 " use filetype-based syntax highlighting, ftplugins, and indentation
 syntax enable
 filetype plugin indent on
 
 set guifont=Fira_Mono:h11:cANSI:qDRAFT
 
-if has('gui_running')
-  set guioptions-=T  " no toolbar
-  colorscheme molokai
-
-endif
-
 let g:gruvbox_contrast_dark = 'hard'
 
-highlight CursorLineNr gui=bold guifg=DarkRed guibg=#c0d0e0
+" highlight CursorLineNr gui=bold guifg=DarkRed guibg=#c0d0e0
 
 """" Tab settings
 
