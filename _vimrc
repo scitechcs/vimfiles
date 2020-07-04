@@ -24,6 +24,7 @@ set undodir=~/.vim/undodir " Saves undo steps to a file so you can redo even aft
 set undofile
 set nocompatible           " No need to be compatible with Vi which would come at the expense of some functionality
 set gdefault               " applies find and replace subsitition globally by default. To only replace first occurrence use /g
+set list lcs=eol:¬,space:. " sets whitespace characters for end of line and spaces. To turn off, :set nolist
 
 call plug#begin()
 Plug 'junegunn/goyo.vim'
@@ -33,7 +34,6 @@ Plug 'airblade/vim-gitgutter'
 Plug 'morhetz/gruvbox'
 Plug 'habamax/vim-asciidoctor'
 Plug 'haya14busa/incsearch.vim'
-Plug 'mattn/emmet-vim'
 call plug#end()
 
 """" Key Bindings
@@ -84,8 +84,8 @@ inoremap kj <ESC>
 """" Miscellaneous settings that might be worth enabling
 
 set cursorline         " highlight current line
-"set background=dark    " configure Vim to use brighter colors
-"set autoread           " autoreload the file in Vim if it has been changed outside of Vim
+set background=dark    " configure Vim to use brighter colors
+set autoread           " autoreload the file in Vim if it has been changed outside of Vim
 
 " pretty print
 command! PrettyPrintHTML !tidy -mi -html -wrap 0 %
