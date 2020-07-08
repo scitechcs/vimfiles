@@ -25,6 +25,7 @@ set undofile
 set nocompatible           " No need to be compatible with Vi which would come at the expense of some functionality
 set gdefault               " applies find and replace subsitition globally by default. To only replace first occurrence use /g
 set list lcs=eol:¬,space:. " sets whitespace characters for end of line and spaces. To turn off, :set nolist
+set hidden                 " It hides buffers instead of closing them. This means that you can have unwritten changes to a file and open a new file using :e, without being forced to write or undo your changes first.
 
 call plug#begin()
 Plug 'junegunn/goyo.vim'
@@ -47,29 +48,23 @@ nmap k gk
 
 
 """" Vim Appearance
-
 " use filetype-based syntax highlighting, ftplugins, and indentation
 syntax enable
 filetype plugin indent on
 
-set guifont=Fira_Mono:h11:cANSI:qDRAFT
 
-let g:gruvbox_contrast_dark = 'hard'
-
-" highlight CursorLineNr gui=bold guifg=DarkRed guibg=#c0d0e0
+highlight CursorLineNr gui=bold guifg=DarkRed guibg=#c0d0e0
+" highlight LineNr term=bold cterm=NONE ctermfg=yellow ctermbg=NONE gui=NONE guifg=green guibg=NONE
 
 """" Tab settings
-
 set tabstop=4           " width that a <TAB> character displays as
 set expandtab           " convert <TAB> key-presses to spaces
 set shiftwidth=4        " number of spaces to use for each step of (auto)indent
 set softtabstop=4       " backspace after pressing <TAB> will remove up to this many spaces
-
 set autoindent          " copy indent from current line when starting a new line
 set smartindent         " even better autoindent (e.g. add indent after '{')
 
 """" Search settings
-
 set incsearch           " search as characters are entered, which is incremental search
 set hlsearch            " highlight matches
 
@@ -80,9 +75,13 @@ nnoremap <CR> :nohlsearch<CR><CR>
 inoremap jk <ESC>
 inoremap kj <ESC>
 
+" Shortcut for window navigation
+map <C-h> <C-w>h
+map <C-j> <C-w>j
+map <C-k> <C-w>k
+map <C-l> <C-w>l
 
 """" Miscellaneous settings that might be worth enabling
-
 set cursorline         " highlight current line
 set background=dark    " configure Vim to use brighter colors
 set autoread           " autoreload the file in Vim if it has been changed outside of Vim
@@ -109,9 +108,7 @@ vnoremap <tab> %
 " use semicolon to enter commandline instead of shift-; (:)
 nnoremap ; :
 
-
 set filetype=on
-
 set statusline=%t%=[%{strlen(&fenc)?&fenc:'none'},%{&ff}]\ %h%m%r%y\ %c\ %l/%L\ %P
 
 let mapleader = ","
