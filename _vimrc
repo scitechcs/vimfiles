@@ -39,12 +39,11 @@ call plug#end()
 
 """" Key Bindings
 
-" move vertically by visual line (don't skip wrapped lines)
-nmap j gj
-nmap k gk
-;
-" map shortcut for NERDTree
-:map <C-n> : NERDTree
+" move vertically by visual line (don't skip wrapped lines) - not currently used as I mapped the Caps Lock key to Esc
+" nmap j gj
+" nmap k gk
+
+:map <C-n> : NERDTree  " map the shortcut for NERDTree
 
 
 """" Vim Appearance
@@ -52,9 +51,10 @@ nmap k gk
 syntax enable
 filetype plugin indent on
 
+set cursorline         " highlight current line
+highlight LineNr guifg=#ffea00 guibg=gray
+highlight CursorLineNr gui=bold guifg=#ffffff guibg=#c0d0e0
 
-highlight CursorLineNr gui=bold guifg=DarkRed guibg=#c0d0e0
-" highlight LineNr term=bold cterm=NONE ctermfg=yellow ctermbg=NONE gui=NONE guifg=green guibg=NONE
 
 """" Tab settings
 set tabstop=4           " width that a <TAB> character displays as
@@ -81,10 +81,16 @@ map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
 
+" Map copy and past to ctrl-c and ctrl-p
+nnoremap <C-c> "+y
+map <C-p> "+p
+
+
 """" Miscellaneous settings that might be worth enabling
-set cursorline         " highlight current line
+
 set background=dark    " configure Vim to use brighter colors
 set autoread           " autoreload the file in Vim if it has been changed outside of Vim
+nnoremap <leader><space> :noh<cr>   " clear search highlights by typing ,<space>
 
 " pretty print
 command! PrettyPrintHTML !tidy -mi -html -wrap 0 %
@@ -98,8 +104,6 @@ inoremap <A-k> <Esc>:m .-2<CR>==gi
 vnoremap <A-j> :m '>+1<CR>gv=gv
 vnoremap <A-k> :m '<-2<CR>gv=gv
 
-" clear search highlights by typing ,<space>
-nnoremap <leader><space> :noh<cr>
 
 " use tab to move around to bracket pairs
 nnoremap <tab> %
@@ -172,8 +176,8 @@ augroup asciidoctor
     au BufEnter *.adoc,*.asciidoc call AsciidoctorMappings()
 augroup END
 
-winpos 800 0
-winsize 150 50
+winpos 1000 0
+winsize 200 70
 
 " Used with incsearch plugin to hide highlights after moving the cursor following a search
 set hlsearch

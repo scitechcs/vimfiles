@@ -11,3 +11,6 @@ set guicursor+=i:ver100-iCursor
 set guicursor+=i:blinkwait3000
 
 set guifont=Fira_Code:h11:cANSI:qDRAFT
+
+highlight CursorLine cterm=NONE ctermbg=yellow ctermfg=White guibg=gray20 guifg=White
+
