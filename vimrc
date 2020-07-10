@@ -76,7 +76,7 @@ nnoremap <CR> :nohlsearch<CR><CR>
 " inoremap jk <ESC>
 " inoremap kj <ESC>
 
-" Shortcut for window navigation
+" Shortcut for changing the window focus
 map <C-h> <C-w>h
 map <C-j> <C-w>j
 map <C-k> <C-w>k

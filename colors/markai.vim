@@ -20,7 +20,7 @@ hi CursorColumn                  guibg=#232728
 hi ColorColumn                   guibg=#232728
 hi LineNr          guifg=#AAAAAA guibg=bg
 hi FoldColumn      guifg=#AAAAAA guibg=bg
-hi VertSplit       guifg=#AAAAAA guibg=bg gui=none
+hi VertSplit       guifg=DarkGray    guibg=Gray gui=none
 hi Search          guifg=#000000 guibg=#E4E500
 hi IncSearch       guibg=#000000 guifg=#FF8D00
 hi Operator        guifg=#F92672
