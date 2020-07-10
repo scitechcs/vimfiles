@@ -9,7 +9,7 @@
 "
 
 set background=dark
-let g:colors_name="molokai"
+let g:colors_name="markai"
 
 " Basic Layout {{{
 
