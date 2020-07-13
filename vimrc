@@ -3,6 +3,7 @@
 syntax on
 set guicursor=
 set number              " show line numbers
+set rnu                 " set relative line numbers
 set nowrap              " do not wrap lines
 set encoding=utf-8      " set encoding to UTF-8 (default was "latin1")
 set mouse=a             " enable mouse support (might not work well on Mac OS X)
@@ -16,14 +17,13 @@ set tabstop=4 softtabstop=4
 set shiftwidth=4
 set expandtab
 set smartindent
-set rnu
 set smartcase
 set noswapfile
 set nobackup
 set undodir=~/.vim/undodir " Saves undo steps to a file so you can redo even after exiting Vim
 set undofile
 set nocompatible           " No need to be compatible with Vi which would come at the expense of some functionality
-set gdefault               " applies find and replace subsitition globally by default. To only replace first occurrence use /g
+" set gdefault               " applies find and replace subsitition globally by default. To only replace first occurrence use /g
 set list lcs=eol:¬,space:. " sets whitespace characters for end of line and spaces. To turn off, :set nolist
 set hidden                 " It hides buffers instead of closing them. This means that you can have unwritten changes to a file and open a new file using :e, without being forced to write or undo your changes first.
 
@@ -41,8 +41,9 @@ call plug#end()
 """" Key Bindings
 
 " move vertically by visual line (don't skip wrapped lines)
- nmap j gj
- nmap k gk
+" Turned this off because I want j to move down one physical line
+" nmap j gj
+" nmap k gk
 
 :map <C-n> : NERDTree  " map the shortcut for NERDTree
 
@@ -91,7 +92,6 @@ map <C-p> "+p
 
 set background=dark    " configure Vim to use brighter colors
 set autoread           " autoreload the file in Vim if it has been changed outside of Vim
-nnoremap <leader><space> :noh<cr>   " clear search highlights by typing ,<space>
 
 " pretty print
 command! PrettyPrintHTML !tidy -mi -html -wrap 0 %
@@ -104,6 +104,10 @@ inoremap <A-j> <Esc>:m .+1<CR>==gi
 inoremap <A-k> <Esc>:m .-2<CR>==gi
 vnoremap <A-j> :m '>+1<CR>gv=gv
 vnoremap <A-k> :m '<-2<CR>gv=gv
+
+"Press * to search for the term under the cursor or a visual selection and then press a key below to replace all instances of it in the current file.
+nnoremap <F2> :%s///g<Left><Left>
+nnoremap <F3> :%s///gc<Left><Left><Left>
 
 
 " use tab to move around to bracket pairs
@@ -136,7 +140,7 @@ nnoremap <leader>w <C-w>v<C-w>l
 let g:asciidoctor_folding = 1
 
 " Fold options, default `0`.
-let g:asciidoctor_fold_options = 1
+let g:asciidoctor_fold_options = 2
 
 " What to use for HTML, default `asciidoctor`.
 let g:asciidoctor_executable = 'asciidoctor'
@@ -177,6 +181,7 @@ augroup asciidoctor
     au BufEnter *.adoc,*.asciidoc call AsciidoctorMappings()
 augroup END
 
+" opening window position and size
 winpos 1000 0
 winsize 200 70
 
@@ -190,4 +195,7 @@ map #  <Plug>(incsearch-nohl-#)
 map g* <Plug>(incsearch-nohl-g*)
 map g# <Plug>(incsearch-nohl-g#)
 
+" Insert date and time in normal and insert modes:
+:nnoremap <F5> "=strftime("%Y-%m-%d %H:%M")<CR>P
+:inoremap <F5> <C-R>=strftime("%Y-%m-%d %H:%M")<CR>
 
