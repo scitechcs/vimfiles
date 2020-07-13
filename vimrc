@@ -36,6 +36,8 @@ Plug 'morhetz/gruvbox'
 Plug 'habamax/vim-asciidoctor'
 Plug 'haya14busa/incsearch.vim'
 Plug 'othree/xml.vim'
+" post install (yarn install | npm install) then load plugin only for editing supported files
+Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 call plug#end()
 
 """" Key Bindings
