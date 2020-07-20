@@ -27,6 +27,7 @@ set nocompatible           " No need to be compatible with Vi which would come a
 set list lcs=eol:¬,space:. " sets whitespace characters for end of line and spaces. To turn off, :set nolist
 set hidden                 " It hides buffers instead of closing them. This means that you can have unwritten changes to a file and open a new file using :e, without being forced to write or undo your changes first.
 
+
 call plug#begin()
 Plug 'junegunn/goyo.vim'
 Plug 'scrooloose/nerdtree'
@@ -186,8 +187,8 @@ augroup asciidoctor
 augroup END
 
 " opening window position and size
-winpos 1000 0
-winsize 200 70
+winpos 1000 100
+winsize 150 70
 
 " Used with incsearch plugin to hide highlights after moving the cursor following a search
 set hlsearch
@@ -203,3 +204,6 @@ map g# <Plug>(incsearch-nohl-g#)
 :nnoremap <F5> "=strftime("%Y-%m-%d %H:%M")<CR>P
 :inoremap <F5> <C-R>=strftime("%Y-%m-%d %H:%M")<CR>
 
+" Insert date in normal and insert modes:
+:nnoremap <F6> "=strftime("%Y-%m-%d")<CR>P
+:inoremap <F6> <C-R>=strftime("%Y-%m-%d")<CR>
